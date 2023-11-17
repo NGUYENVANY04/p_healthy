@@ -31,7 +31,7 @@ class HomeVM extends ChangeNotifier {
 
   Future<void> fetchHeatBeat() async {
     _fetchHeartBeatStatus = LoadStatus.success;
-    DatabaseReference starCountRef = FirebaseDatabase.instance.ref('HEARTRATE');
+    DatabaseReference starCountRef = FirebaseDatabase.instance.ref('HeartBeat');
     starCountRef.onValue.listen(
       (DatabaseEvent event) {
         var result = <int>[];

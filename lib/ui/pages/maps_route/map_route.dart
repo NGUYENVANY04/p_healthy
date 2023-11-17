@@ -1,7 +1,9 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/plugin_api.dart';
 import 'package:flutter_map_directions/flutter_map_directions.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:p_healthy/main.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
@@ -14,7 +16,10 @@ class _MapPageState extends State<MapPage> {
   String _message = 'Finding route...';
   double _topPadding = 0;
 
-  List<DirectionCoordinate> _coordinates = [];
+  List<DirectionCoordinate> _coordinates = [
+    // DirectionCoordinate(20.991865470896187, 105.80481071986729),
+    // DirectionCoordinate(20.9798498626087, 105.78620459001803),
+  ];
   final MapController _mapController = MapController();
   final DirectionController _directionController = DirectionController();
 
@@ -25,20 +30,20 @@ class _MapPageState extends State<MapPage> {
   }
 
   void _loadNewRoute() async {
-    await Future.delayed(const Duration(seconds: 5));
-    _coordinates = [
-      DirectionCoordinate(20.98091894, 105.78737106),
-    ];
-    final bounds = LatLngBounds.fromPoints(_coordinates
-        .map((location) => LatLng(location.latitude, location.longitude))
-        .toList());
-    CenterZoom centerZoom = _mapController.centerZoomFitBounds(bounds);
-    _mapController.move(centerZoom.center, centerZoom.zoom);
-    _directionController.updateDirection(_coordinates);
+    // _coordinates = [
+    //   DirectionCoordinate(20.98091894, 105.78737106),
+    // // ];
+    // final bounds = LatLngBounds.fromPoints(_coordinates
+    //     .map((location) => LatLng(location.latitude, location.longitude))
+    //     .toList());
+    // CenterZoom centerZoom = _mapController.centerZoomFitBounds(bounds);
+    // _mapController.move(centerZoom.center, centerZoom.zoom);
+    // _directionController.updateDirection(_coordinates);
   }
 
   @override
   Widget build(BuildContext context) {
+    _coordinates = [DirectionCoordinate(currentLat, currentLon)];
     _topPadding = MediaQuery.of(context).padding.top;
     final bounds = LatLngBounds.fromPoints([
       DirectionCoordinate(20.98091894, 105.78737106)
@@ -50,7 +55,6 @@ class _MapPageState extends State<MapPage> {
         body: Stack(
       children: [
         FlutterMap(
-        
           mapController: _mapController,
           options: MapOptions(
             bounds: bounds,
@@ -61,16 +65,19 @@ class _MapPageState extends State<MapPage> {
               urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
             ),
             MarkerLayer(
-                markers: _coordinates.map((location) {
-              return Marker(
-                  point: LatLng(location.latitude, location.longitude),
-                  width: 35,
-                  height: 35,
+              markers: [
+                Marker(
+                  point: LatLng(currentLat, currentLon),
+                  width: 10,
+                  height: 10,
                   builder: (context) => const Icon(
-                        Icons.location_pin,
-                      ),
-                  anchorPos: AnchorPos.align(AnchorAlign.top));
-            }).toList()),
+                    Icons.location_pin,
+                    color: Colors.orange,
+                  ),
+                  anchorPos: AnchorPos.align(AnchorAlign.top),
+                ),
+              ],
+            ),
             DirectionsLayer(
               coordinates: _coordinates,
               color: Colors.deepOrange,
