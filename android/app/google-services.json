@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "313222019148",
+    "firebase_url": "https://fir-max30100-default-rtdb.firebaseio.com",
+    "project_id": "fir-max30100",
+    "storage_bucket": "fir-max30100.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:313222019148:android:882fbab3e333e686545ce9",
+        "android_client_info": {
+          "package_name": "com.example.p_healthy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "313222019148-dtsf9j8i4902fn0825fokrni564t754k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIJc5yrwjKKbiQr3EBPzyCw1iD9MqUYPY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "313222019148-dtsf9j8i4902fn0825fokrni564t754k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
