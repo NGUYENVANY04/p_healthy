@@ -102,7 +102,7 @@ Widget _buildHome() {
           style: AppTextStyle.blackS20,
         ),
         Text(
-          "Nguyễn Văn Ý",
+          "P - CARE",
           style: AppTextStyle.blackS32Bold,
         ),
         const SizedBox(

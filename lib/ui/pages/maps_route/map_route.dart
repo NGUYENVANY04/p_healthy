@@ -15,7 +15,7 @@ class MapPage extends StatefulWidget {
 class _MapPageState extends State<MapPage> {
   String _message = 'Finding route...';
   double _topPadding = 0;
-
+//19.047106723600088, 105.4915061658805
   List<DirectionCoordinate> _coordinates = [
     // DirectionCoordinate(20.991865470896187, 105.80481071986729),
     // DirectionCoordinate(20.9798498626087, 105.78620459001803),
@@ -46,11 +46,12 @@ class _MapPageState extends State<MapPage> {
     _coordinates = [DirectionCoordinate(currentLat, currentLon)];
     _topPadding = MediaQuery.of(context).padding.top;
     final bounds = LatLngBounds.fromPoints([
-      DirectionCoordinate(20.98091894, 105.78737106)
-    ]
+      DirectionCoordinate(21.00503844429, 105.8438697949)
+    ] //18.666120269514742, 105.7017453967286
         .map((location) => LatLng(location.latitude, location.longitude))
         .toList());
-
+//19.047943312226383, 105.49180276820734
+//21.00503844429642, 105.84386979495417
     return Scaffold(
         body: Stack(
       children: [

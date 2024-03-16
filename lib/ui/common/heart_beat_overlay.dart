@@ -74,10 +74,11 @@ class _HeartBeatOverlayState extends State<HeartBeatOverlay> {
                               fontWeight: FontWeight.bold,
                               color: Colors.red),
                         ),
+                        
                         subtitle: Text(
                           heartBeat > 100
-                              ? "Your body temperature is higher than the safe level. - $heartBeat"
-                              : "Your body temperature is lower than the safe level. - $heartBeat",
+                              ? "You are in danger."
+                              : "You are in danger. ",
                           style: const TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,

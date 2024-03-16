@@ -77,8 +77,8 @@ class _TempOverlayState extends State<TempOverlay> {
                         ),
                         subtitle: Text(
                           temp < 37
-                              ? "Your body temperature is lower than the safe level. - $temp"
-                              : "Your body temperature is higher than the safe level. - $temp",
+                              ? "Your body temperature is lower than the safe level. "
+                              : "Your body temperature is higher than the safe level.",
                           style: const TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
@@ -93,10 +93,9 @@ class _TempOverlayState extends State<TempOverlay> {
                   right: 0,
                   child: IconButton(
                     onPressed: () async {
-                                ringNoti();
+                      ringNoti();
 
                       await FlutterOverlayWindow.closeOverlay();
-                 
                     },
                     icon: const Icon(
                       Icons.close,

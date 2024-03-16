@@ -14,9 +14,9 @@ void getTempData() {
       (DatabaseEvent event) async {
         final data = event.snapshot.value;
         temp = int.parse(data.toString());
-        if (temp > 37 || temp < 37) {
+        if (temp > 38 || temp < 36) {
           ringNoti();
-          warningType = "heart";
+          warningType = "temp";
           FlutterOverlayWindow.showOverlay(
             enableDrag: true,
             overlayTitle: "Body temperature",
